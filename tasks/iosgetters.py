@@ -42,10 +42,31 @@ class NapalmIOSGetter:
             logger.info(f"{task.host}: Failed to get running config")
             return Result(host=task.host, failed=True, changed=False)
 
-        config = result['config']['running']
+        config = result.result['config']['running']
+
         logger.info(f"{task.host}: Config Retrieved")
     
         return Result(host=task.host, result=config, failed=False, changed=False)
+
+    @staticmethod
+    def get_interfaces_ip(task: Task):
+        logger.info(f"{task.host}: Getting Interface IP Addresses")
+
+        result = task.run(
+            task=napalm_get,
+            name="Get IP addresses from device",
+            getters=['interfaces_ip']
+        )
+        if not result:
+            logger.info(f"{task.host}: Failed to get interfaces")
+            return Result(host=task.host, failed=True, changed=False)
+
+        ints = result.result['interfaces_ip']
+
+        logger.info(f"{task.host}: Interfaces Retrieved")
+    
+        return Result(host=task.host, result=ints, failed=False, changed=False)
+
 
 class NetmikoIOSGetter:
     """
