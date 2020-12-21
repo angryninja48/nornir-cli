@@ -1,0 +1,40 @@
+---
+username: vagrant
+password: vagrant
+connection_options:
+  netmiko:
+    platform: cisco_ios
+    extras:
+      # session_log: logs/netmiko_log.txt
+  napalm:
+    extras:
+      optional_args:
+        session_log: logs/napalm_log.txt
+        global_delay_factor: 3
+        max_loops: 1000
+data:
+  dns: 
+    tld: 'lab.local'
+    servers: ['10.20.12.15', '10.2.2.33']
+  
+  ntp:
+    servers: ['10.20.12.15', '10.2.2.33']
+
+  syslog:
+    servers: ['10.20.12.15', '10.2.2.33']
+
+  tacacs:
+    # servers: ['10.217.128.21', '10.218.128.21']
+    servers: ['10.20.0.178']
+
+  local_users:
+    - { name: admin }
+#    - { name: vagrant }
+  acls:
+      VTY-ACL:
+          # For testing
+          - {'acl_action': 'permit', 'acl_network': '10.0.0.0', 'acl_netmask': '0.255.255.255' }
+
+        
+      # another_acl:
+      #     - {'acl_action': 'permit', 'acl_network': '10.0.0.0', 'acl_netmask': '0.0.0.255' }

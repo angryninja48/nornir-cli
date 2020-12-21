@@ -1,0 +1,7 @@
+---
+switch:
+  platform: ios
+  # username: vagrant
+  # password: vagrant
+  data:
+    location: Sydney
