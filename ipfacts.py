@@ -1,3 +1,5 @@
+import csv
+
 from main import InitNr
 from tasks.iosgetters import NapalmIOSGetter
 
@@ -51,13 +53,16 @@ def ip_facts():
     return results
 
 def main():
+
+    # Gather facts from the devices using nornir
     ipfacts = ip_facts()
 
-    list_of_nets = [
-        '10.0.0.0/27',
-        '10.244.194.0/28',
-        '10.0.2.0/24'
-    ]
+    # Read in csv
+    inputfile = 'networks.csv'
+    with open(inputfile, "r", newline="") as file:
+        reader = csv.DictReader(file)
+        headers = reader.fieldnames
+        list_of_nets = [row['Network'] for row in reader]
 
     # Loop through both lists and return only the matching networks
     results = []
@@ -74,7 +79,13 @@ def main():
                             "network": i['network'],
                         }
                     )
-    print(results)
+    # Output to new csv
+    outputfile = 'network_facts.csv'
+    fieldnames = list(results[0].keys())
+    with open(outputfile, "w", newline="") as f:
+        writer = csv.DictWriter(f,fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(results)
 
 if __name__ == '__main__':
     main()
