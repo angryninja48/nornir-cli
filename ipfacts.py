@@ -1,9 +1,36 @@
 import csv
+import json
+from ttp import ttp
 
 from main import InitNr
 from tasks.iosgetters import NapalmIOSGetter
 
 from netaddr import IPNetwork
+
+OUTPUT_DIR='./outputs'
+
+ttp_template = """
+<group name="interfaces.{{ interface }}">
+interface {{ interface }}
+<group>
+ ip helper-address {{ helper_address }}
+</group>
+</group>
+"""
+
+def interface_parser(config):
+    parser = ttp(data=config, template=ttp_template)
+    parser.parse()
+    interfaces = parser.result()[0][0]
+    return interfaces
+
+def get_interface_dhcp():
+    a = InitNr()
+    nr = a.nornir
+    getters = NapalmIOSGetter()
+    # Grab the Interface IP's
+    method = getattr(getters, 'get_config')
+    result = nr.run(task=method)
 
 def get_network(ipv4=None):
     try:
@@ -52,7 +79,36 @@ def ip_facts():
                     )
     return results
 
+
+def interface_helpers():
+    a = InitNr()
+    nr = a.nornir
+    getters = NapalmIOSGetter()
+    # Grab the Config
+    method = getattr(getters, 'get_config')
+    configs = nr.run(task=method)
+    # Parse out interface config
+    results = []
+    for host, config in configs.items():
+        interfaces = interface_parser(config.result)['interfaces']
+        for interface, address in interfaces.items():
+            if address:
+                results.append(
+                        {
+                            "hostname": host,
+                            "interface": interface,
+                            "helpers": address,
+                        }
+                    )
+    return results
+
 def main():
+
+    # Get configs and dump interfaces to file
+    interfaces = interface_helpers()
+
+    with open(f'{OUTPUT_DIR}/interface_helpers.json', 'w') as outfile:
+        json.dump(interfaces, outfile)
 
     # Gather facts from the devices using nornir
     ipfacts = ip_facts()
@@ -80,7 +136,7 @@ def main():
                         }
                     )
     # Output to new csv
-    outputfile = 'network_facts.csv'
+    outputfile = f'{OUTPUT_DIR}/network_facts.csv'
     fieldnames = list(results[0].keys())
     with open(outputfile, "w", newline="") as f:
         writer = csv.DictWriter(f,fieldnames=fieldnames)
