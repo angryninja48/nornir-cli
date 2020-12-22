@@ -32,12 +32,17 @@ class NapalmIOSGetter:
     @staticmethod
     def get_config(task: Task):
         logger.info(f"{task.host}: Getting Running Config")
-
+        
+        # try:
         result = task.run(
             task=napalm_get,
             name="Get Running configs from device",
             getters=['config']
         )
+        # except NornirSubTaskError as e:
+        #     logger.info(f"{task.host}: Failed to get running config")
+        #     task.results.pop()
+
         if not result:
             logger.info(f"{task.host}: Failed to get running config")
             return Result(host=task.host, failed=True, changed=False)

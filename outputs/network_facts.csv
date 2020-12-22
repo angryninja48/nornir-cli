@@ -1,0 +1,3 @@
+hostname,interface,description,ipv4_address,subnet,network,helper_address
+csr01,GigabitEthernet1,vagrant-management,,,10.20.0.0/24,"['1.1.1.1', '2.2.2.2']"
+csr01,GigabitEthernet2,,10.20.0.100,255.255.255.0,10.20.0.0/24,
