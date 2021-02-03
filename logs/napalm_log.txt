@@ -1,0 +1,167 @@
+
+
+
+csr#terminal width 511
+csr#terminal length 0
+csr#
+csr#
+csr#
+csr#
+csr#dir
+Directory of bootflash:/
+
+21      -rw-                0   Feb 3 2021 03:19:11 +00:00  merge_config.txt
+23      -rw-             6963   Feb 3 2021 03:19:09 +00:00  candidate_config.txt
+241921  drwx            16384   Feb 3 2021 01:52:52 +00:00  tracelogs
+22      -rw-             6938   Feb 2 2021 22:40:10 +00:00  rollback_config.txt
+120961  drwx             4096   Feb 2 2021 05:45:30 +00:00  .installer
+19      -rw-              157   Feb 2 2021 05:44:50 +00:00  csrlxc-cfg.log
+314497  drwx             4096   Feb 2 2021 05:44:50 +00:00  license_evlog
+18      -rw-                0   Feb 2 2021 05:44:43 +00:00  cvac.log
+17      -rw-               30   Feb 2 2021 05:44:43 +00:00  throughput_monitor_params
+14      -rw-              785   Feb 2 2021 05:44:12 +00:00  mode_event_log
+20      drwx             4096   Feb 2 2021 05:43:49 +00:00  lost+found
+249985  drwx             4096   Feb 2 2021 00:55:03 +00:00  .dbpersist
+88705   drwx             4096   Feb 2 2021 00:54:33 +00:00  pnp-tech
+209665  drwx             4096   Feb 2 2021 00:53:39 +00:00  iox_host_data_share
+346753  drwx             4096   Feb 2 2021 00:53:39 +00:00  guest-share
+354817  drwx             4096   Feb 2 2021 00:53:37 +00:00  onep
+145153  drwx             4096   Feb 2 2021 00:53:36 +00:00  pnp-info
+153217  drwx             4096   Feb 2 2021 00:53:33 +00:00  .prst_sync
+137089  drwx             4096   Feb 2 2021 00:53:08 +00:00  virtual-instance
+16      -rwx             1314   Feb 2 2021 00:53:01 +00:00  trustidrootx3_ca.ca
+15      -rw-            20109   Feb 2 2021 00:53:01 +00:00  ios_core.p7b
+72577   drwx             4096   Feb 2 2021 00:52:59 +00:00  gs_script
+64513   drwx             4096   Feb 2 2021 00:52:59 +00:00  .rollback_timer
+298369  drwx             4096   Feb 2 2021 00:52:59 +00:00  core
+40321   drwx             4096   Feb 2 2021 00:52:54 +00:00  bootlog_history
+13      -rw-         48320460   Nov 1 2020 14:53:16 +00:00  csr1000v-rpboot.17.03.02.SPA.pkg
+12      -rw-        470791260   Nov 1 2020 14:53:15 +00:00  csr1000v-mono-universalk9.17.03.02.SPA.pkg
+11      -rw-             1092   Nov 1 2020 14:53:15 +00:00  packages.conf
+
+6286540800 bytes total (5432950784 bytes free)
+csr#
+csr#dir bootflash:
+Directory of bootflash:/
+
+21      -rw-                0   Feb 3 2021 03:19:11 +00:00  merge_config.txt
+23      -rw-             6963   Feb 3 2021 03:19:09 +00:00  candidate_config.txt
+241921  drwx            16384   Feb 3 2021 01:52:52 +00:00  tracelogs
+22      -rw-             6938   Feb 2 2021 22:40:10 +00:00  rollback_config.txt
+120961  drwx             4096   Feb 2 2021 05:45:30 +00:00  .installer
+19      -rw-              157   Feb 2 2021 05:44:50 +00:00  csrlxc-cfg.log
+314497  drwx             4096   Feb 2 2021 05:44:50 +00:00  license_evlog
+18      -rw-                0   Feb 2 2021 05:44:43 +00:00  cvac.log
+17      -rw-               30   Feb 2 2021 05:44:43 +00:00  throughput_monitor_params
+14      -rw-              785   Feb 2 2021 05:44:12 +00:00  mode_event_log
+20      drwx             4096   Feb 2 2021 05:43:49 +00:00  lost+found
+249985  drwx             4096   Feb 2 2021 00:55:03 +00:00  .dbpersist
+88705   drwx             4096   Feb 2 2021 00:54:33 +00:00  pnp-tech
+209665  drwx             4096   Feb 2 2021 00:53:39 +00:00  iox_host_data_share
+346753  drwx             4096   Feb 2 2021 00:53:39 +00:00  guest-share
+354817  drwx             4096   Feb 2 2021 00:53:37 +00:00  onep
+145153  drwx             4096   Feb 2 2021 00:53:36 +00:00  pnp-info
+153217  drwx             4096   Feb 2 2021 00:53:33 +00:00  .prst_sync
+137089  drwx             4096   Feb 2 2021 00:53:08 +00:00  virtual-instance
+16      -rwx             1314   Feb 2 2021 00:53:01 +00:00  trustidrootx3_ca.ca
+15      -rw-            20109   Feb 2 2021 00:53:01 +00:00  ios_core.p7b
+72577   drwx             4096   Feb 2 2021 00:52:59 +00:00  gs_script
+64513   drwx             4096   Feb 2 2021 00:52:59 +00:00  .rollback_timer
+298369  drwx             4096   Feb 2 2021 00:52:59 +00:00  core
+40321   drwx             4096   Feb 2 2021 00:52:54 +00:00  bootlog_history
+13      -rw-         48320460   Nov 1 2020 14:53:16 +00:00  csr1000v-rpboot.17.03.02.SPA.pkg
+12      -rw-        470791260   Nov 1 2020 14:53:15 +00:00  csr1000v-mono-universalk9.17.03.02.SPA.pkg
+11      -rw-             1092   Nov 1 2020 14:53:15 +00:00  packages.conf
+
+6286540800 bytes total (5432950784 bytes free)
+csr#
+csr#dir bootflash:/merge_config.txt
+Directory of bootflash:/merge_config.txt
+
+21      -rw-                0   Feb 3 2021 03:19:11 +00:00  merge_config.txt
+
+6286540800 bytes total (5432950784 bytes free)
+csr#
+csr#verify /md5 bootflash:/merge_config.txt
+Done!
+verify /md5 (bootflash:/merge_config.txt) = d41d8cd98f00b204e9800998ecf8427e
+
+
+csr#
+csr#dir bootflash:
+Directory of bootflash:/
+
+21      -rw-                0   Feb 3 2021 03:19:11 +00:00  merge_config.txt
+23      -rw-             6963   Feb 3 2021 03:19:09 +00:00  candidate_config.txt
+241921  drwx            16384   Feb 3 2021 01:52:52 +00:00  tracelogs
+22      -rw-             6938   Feb 2 2021 22:40:10 +00:00  rollback_config.txt
+120961  drwx             4096   Feb 2 2021 05:45:30 +00:00  .installer
+19      -rw-              157   Feb 2 2021 05:44:50 +00:00  csrlxc-cfg.log
+314497  drwx             4096   Feb 2 2021 05:44:50 +00:00  license_evlog
+18      -rw-                0   Feb 2 2021 05:44:43 +00:00  cvac.log
+17      -rw-               30   Feb 2 2021 05:44:43 +00:00  throughput_monitor_params
+14      -rw-              785   Feb 2 2021 05:44:12 +00:00  mode_event_log
+20      drwx             4096   Feb 2 2021 05:43:49 +00:00  lost+found
+249985  drwx             4096   Feb 2 2021 00:55:03 +00:00  .dbpersist
+88705   drwx             4096   Feb 2 2021 00:54:33 +00:00  pnp-tech
+209665  drwx             4096   Feb 2 2021 00:53:39 +00:00  iox_host_data_share
+346753  drwx             4096   Feb 2 2021 00:53:39 +00:00  guest-share
+354817  drwx             4096   Feb 2 2021 00:53:37 +00:00  onep
+145153  drwx             4096   Feb 2 2021 00:53:36 +00:00  pnp-info
+153217  drwx             4096   Feb 2 2021 00:53:33 +00:00  .prst_sync
+137089  drwx             4096   Feb 2 2021 00:53:08 +00:00  virtual-instance
+16      -rwx             1314   Feb 2 2021 00:53:01 +00:00  trustidrootx3_ca.ca
+15      -rw-            20109   Feb 2 2021 00:53:01 +00:00  ios_core.p7b
+72577   drwx             4096   Feb 2 2021 00:52:59 +00:00  gs_script
+64513   drwx             4096   Feb 2 2021 00:52:59 +00:00  .rollback_timer
+298369  drwx             4096   Feb 2 2021 00:52:59 +00:00  core
+40321   drwx             4096   Feb 2 2021 00:52:54 +00:00  bootlog_history
+13      -rw-         48320460   Nov 1 2020 14:53:16 +00:00  csr1000v-rpboot.17.03.02.SPA.pkg
+12      -rw-        470791260   Nov 1 2020 14:53:15 +00:00  csr1000v-mono-universalk9.17.03.02.SPA.pkg
+11      -rw-             1092   Nov 1 2020 14:53:15 +00:00  packages.conf
+
+6286540800 bytes total (5432950784 bytes free)
+csr#
+csr#show running-config | inc ip scp server enable
+ip scp server enable
+csr#
+csr#verify /md5 bootflash:/merge_config.txt
+.Done!
+verify /md5 (bootflash:/merge_config.txt) = 7798a732bdedd2cd32c3d846fb65dca0
+
+
+csr#
+csr#show archive config incremental-diffs bootflash:/merge_config.txt ignorecase
+!List of Commands:
+interface GigabitEthernet2
+ description jb-test
+end
+
+csr#
+csr#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+csr(config)#
+csr(config)#file prompt quiet
+csr(config)#
+csr(config)#end
+csr#
+csr#
+csr#copy running-config bootflash:/rollback_config.txt
+6963 bytes copied in 0.106 secs (65689 bytes/sec)
+csr#
+csr#dir bootflash:/merge_config.txt
+Directory of bootflash:/merge_config.txt
+
+21      -rw-               47   Feb 3 2021 03:29:33 +00:00  merge_config.txt
+
+6286540800 bytes total (5432946688 bytes free)
+csr#
+csr#copy bootflash:/merge_config.txt running-config
+47 bytes copied in 0.018 secs (2611 bytes/sec)
+csr#
+csr#
+csr#
+csr#write mem
+Building configuration...
+[OK]
+csr#

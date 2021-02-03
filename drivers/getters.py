@@ -1,17 +1,18 @@
+from drivers.base import BaseHandler
 
-from nornir.core.task import Task, Result
+from nornir.core.task import Result
 from nornir_napalm.plugins.tasks import napalm_get
 
 import logging
 
 logger = logging.getLogger(__name__)
 
-class NapalmIOSGetter:
+class NapalmGetter(BaseHandler):
     """
     Napalm based tasks for Nornir
     """
     @staticmethod
-    def get_facts(task: Task):
+    def _get_facts(task):
         logger.info(f"{task.host}: Getting Facts")
         
         result = task.run(
@@ -28,9 +29,9 @@ class NapalmIOSGetter:
         logger.info(f"{task.host}: Facts Retrieved")
 
         return Result(host=task.host, result=facts, failed=False, changed=False)
-    
+
     @staticmethod
-    def get_config(task: Task):
+    def _get_config(task):
         logger.info(f"{task.host}: Getting Running Config")
         
         # try:
@@ -52,9 +53,9 @@ class NapalmIOSGetter:
         logger.info(f"{task.host}: Config Retrieved")
     
         return Result(host=task.host, result=config, failed=False, changed=False)
-
+    
     @staticmethod
-    def get_interfaces_ip(task: Task):
+    def _get_interfaces_ip(task):
         logger.info(f"{task.host}: Getting Interface IP Addresses")
 
         result = task.run(
@@ -72,8 +73,11 @@ class NapalmIOSGetter:
     
         return Result(host=task.host, result=ints, failed=False, changed=False)
 
+    def get_facts(self):
+        return self.nornir.run(task=self._get_facts)
 
-class NetmikoIOSGetter:
-    """
-    Netmiko based tasks for Nornir
-    """
+    def get_config(self):
+        return self.nornir.run(task=self._get_config)
+
+    def get_interfaces_ip(self):
+        return self.nornir.run(task=self._get_interfaces_ip)

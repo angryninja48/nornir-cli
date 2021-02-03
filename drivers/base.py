@@ -1,14 +1,13 @@
+
+
 import os
 
-# from jinja2 import Environment, FileSystemLoader, StrictUndefined
-# from pathlib import Path
 from getpass import getpass
 
 from nornir import InitNornir
 from nornir.core.filter import F
 
-
-class InitNr:
+class BaseHandler:
     """
     Wrapper for Nornir
     """
@@ -16,9 +15,10 @@ class InitNr:
         self.nornir = nornir
 
         if not self.nornir:
-            self._inventory(host_file='inventory/site1/hosts.yml', group_file='inventory/site1/groups.yml', defaults_file='inventory/defaults.yml')
+            self.inventory(host_file='inventory/site1/hosts.yml', group_file='inventory/site1/groups.yml', defaults_file='inventory/defaults.yml')
 
-    def _inventory(self, host_file, group_file, defaults_file, num_workers=1, device_filter=None, 
+    # Init Nornir, filter inventory and set crednetials
+    def inventory(self, host_file, group_file, defaults_file, num_workers=1, device_filter=None, 
                 group_filter=None, vault_file=None, vault_pass=None, output_directory='./outputs'):
 
         self.num_workers = num_workers
@@ -48,19 +48,17 @@ class InitNr:
         )
 
         if self.device_filter is not None:
-            self.nr.filter(F(name__contains=self.device_filter))
+            self.nornir.filter(F(name__contains=self.device_filter))
         
         if self.group_filter is not None:
-            self.nr.filter(F(name__contains=self.group_filter))
+            self.nornir.filter(F(name__contains=self.group_filter))
 
         if self.vault_file is not None:
             print(f'Please enter vault credentials')
             if self.vault_pass is None:
                 self.vault_pass = getpass()
-            self.nr.inventory.defaults.data['secrets'] = decrypt_file(self.vault_file, self.vault_pass)
+            self.nornir.inventory.defaults.data['secrets'] = decrypt_file(self.vault_file, self.vault_pass)
 
-        return True
-        
-    def write_to_file():
-        """
-        """
+        return self.nornir
+
+
